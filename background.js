@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     chrome.storage.local.get("isScrollKeyDisabled", (data) => {
       sendResponse({ enabled: data.isScrollKeyDisabled });
     });
-    return true; // Required for asynchronous sendResponse
+    return true;
   } else if (message.action === "toggleStatus") {
     chrome.storage.local.set({ isScrollKeyDisabled: message.enabled }, () => {
       chrome.tabs.query({ url: "<all_urls>" }, (tabs) => {
