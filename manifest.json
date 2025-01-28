@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Disable Scroll Key",
+  "version": "1.0",
+  "description": "Disables all keys for scrolling.",
+  "permissions": ["scripting", "storage"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
